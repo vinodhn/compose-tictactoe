@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            //  Main app scaffold
             TicTacToeTheme {
                 Scaffold(
                     topBar = {
@@ -36,16 +37,18 @@ class MainActivity : AppCompatActivity() {
                                 modifier = Modifier.fillMaxHeight(),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                BoardScreen(
-                                    board = tictactoeViewModel.currentBoardState,
-                                    onPlayerMove = tictactoeViewModel::onPlayerMove,
-                                    onReset = tictactoeViewModel::reset,
-                                    modifier = Modifier
-                                        .padding(4.dp)
-                                        .fillMaxWidth()
-                                        .wrapContentHeight()
-                                )
-                                ResultDialog(tictactoeViewModel)
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    BoardScreen(
+                                        board = tictactoeViewModel.currentBoardState,
+                                        onPlayerMove = tictactoeViewModel::onPlayerMove,
+                                        onReset = tictactoeViewModel::reset,
+                                        modifier = Modifier
+                                            .padding(4.dp)
+                                            .fillMaxWidth()
+                                            .wrapContentHeight()
+                                    )
+                                    ResultDialog(tictactoeViewModel)
+                                }
                             }
                         }
                     }

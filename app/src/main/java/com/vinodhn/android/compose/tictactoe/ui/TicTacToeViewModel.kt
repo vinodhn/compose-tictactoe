@@ -52,7 +52,7 @@ class TicTacToeViewModel : ViewModel() {
     fun reset() {
         // Clear the board and then reset the engine
         currentBoardState = emptyBoardData()
-        game = Engine(Player.O, Player.X)
+        game = Engine(Player.X, Player.O)
         isGameOver = false
     }
 
