@@ -9,7 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -23,15 +22,23 @@ import com.vinodhn.android.compose.tictactoe.ui.theme.TicTacToeTheme
 private var helpDialogVisible = mutableStateOf(false)
 
 @Composable
-fun BoardScreen(modifier: Modifier = Modifier, board : List<Char>, onPlayerMove: (Int) -> Unit = {}, onReset: () -> Unit = {}) {
-    Column (horizontalAlignment = Alignment.CenterHorizontally) {
+fun BoardScreen(
+    modifier: Modifier = Modifier,
+    board: List<Char>,
+    onPlayerMove: (Int) -> Unit = {},
+    onReset: () -> Unit = {}
+) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Board(cells = board, onItemClick = onPlayerMove)
         Row {
             Button(onClick = onReset, modifier = Modifier.padding(16.dp)) {
-                Text(text = "Reset Game")
+                Text(stringResource(id = R.string.reset_game))
             }
-            Button(onClick = { helpDialogVisible.value = true }, modifier = Modifier.padding(16.dp)) {
-                Text(text = "Help")
+            Button(
+                onClick = { helpDialogVisible.value = true },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text(stringResource(id = R.string.help_me))
             }
         }
         showHelpDialog()
@@ -41,18 +48,17 @@ fun BoardScreen(modifier: Modifier = Modifier, board : List<Char>, onPlayerMove:
 @Composable
 fun showHelpDialog() {
     // Only show the dialog if the state is true
-    if(helpDialogVisible.value) {
+    if (helpDialogVisible.value) {
         AlertDialog(
             onDismissRequest = {
                 helpDialogVisible.value = false
             },
             title = {
-                Text(text = "Help")
+                Text(stringResource(id = R.string.help_me))
             },
             text = {
                 Text(
-                    "Just tap on any one of the squares to place down a character. The first" +
-                            "player to go will always be X and then the second player will be O."
+                    stringResource(R.string.help_msg)
                 )
             },
             confirmButton = {
@@ -71,7 +77,7 @@ fun showHelpDialog() {
 @Preview
 @Composable
 private fun LightBoardPreview() {
-    val boardData = listOf('X','X','X', 'O', ' ', ' ', ' ', 'O', 'O')
+    val boardData = listOf('X', 'X', 'X', 'O', ' ', ' ', ' ', 'O', 'O')
     TicTacToeTheme(false) {
         Surface {
             BoardScreen(board = boardData)
@@ -82,7 +88,7 @@ private fun LightBoardPreview() {
 @Preview
 @Composable
 private fun DarkBoardPreview() {
-    val boardData = listOf('X','X','X', 'O', ' ', ' ', ' ', 'O', 'O')
+    val boardData = listOf('X', 'X', 'X', 'O', ' ', ' ', ' ', 'O', 'O')
     TicTacToeTheme(true) {
         Surface {
             BoardScreen(board = boardData)

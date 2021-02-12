@@ -63,15 +63,15 @@ fun ResultDialog(viewModel: TicTacToeViewModel) {
     // If game has ended, show the dialog box
     AlertDialog(
         onDismissRequest = {},
-        title = { Text(text = "Game Over") },
+        title = { Text(stringResource(id = R.string.game_over)) },
         text = {
             viewModel.winner
-                ?.let { Text(text = "Congrats, " + it.name + " won!") }
-                ?: Text(text = "Tie game!")
+                ?.let { Text(stringResource(id = R.string.congrats_msg, it.name)) }
+                ?: Text(stringResource(id = R.string.tie_game))
         },
         confirmButton = {
             Button(onClick = viewModel::reset) {
-                Text(text = "Ok, reset game")
+                Text(stringResource(id = R.string.ok_reset))
             }
         }
     )

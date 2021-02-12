@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tic-Tac-Toe</string>
+    <string name="game_over">Game Over</string>
+    <string name="congrats_msg">Congrats, %s won!</string>
+    <string name="tie_game">Tie game!</string>
+    <string name="ok_reset">OK, reset game</string>
+    <string name="reset_game">Reset Game</string>
+    <string name="help_me">Help</string>
+    <string name="help_msg">Just tap on any one of the squares to place down a character. The first
+                            player to go will always be X and then the second player will be O.</string>
 </resources>
