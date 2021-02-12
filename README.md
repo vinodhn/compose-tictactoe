@@ -1,6 +1,17 @@
-# compose-tictactoe
+# compose-pokedex
 
-## A simple Tic-Tac-Toe app for Android written in Kotlin, utilizing Jetpack Compose and an MVVM architecture.
+Tic-Tac-Toe on Jetpack Compose. 
 
-![Light Mode UI](./readme_res/lightMode.jpg)
-![Dark Mode UI](./readme_res/darkMode.jpg)
+Single-Activity, no Fragments, only View Models.
+
+## Install
+
+You can build the project with Android Studio Arctic Fox Canary. APKs might be uploaded in the future.
+
+## Screenshots
+
+![](https://imgur.com/hZsoAUz.png)
+![](https://imgur.com/fP3e4bN.png)
+![](https://imgur.com/ok2bAUh.png)
+![](https://imgur.com/F16TBjh.png)
+
